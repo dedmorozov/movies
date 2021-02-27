@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  label {
+    width: 49%;
+    text-align: right;
+
+    .header__input {
+      width: 63px;
+      padding: 10px;
+      transition: 0.6s ease-in;
+      border: none;
+      background-color: aliceblue;
+      color: #fff;
+      outline: steelblue;
+      cursor: pointer;
+      
+      &::placeholder {
+        color: #00000080;
+      }
+      
+      &:focus {
+        width: 100%;
+        background-color: steelblue;
+        cursor: text;
+
+        &::placeholder {
+          color: #ffffff80;
+        }
+      }
+    }
+
+  }
+
+  button {
+    background-color: aliceblue;
+    color: #00000080;
+    border: 0;
+    width: 10%;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    &:hover,
+    &:focus {
+      background-color: steelblue;
+      color: #fff;
+    }
+  }
+}

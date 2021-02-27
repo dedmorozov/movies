@@ -1,79 +1,44 @@
 [
   {
-    "Title": "2001: A Space Odyssey",
-    "Release Year": 1968,
-    "Format": "DVD",
-    "Stars": [
-      "Keir Dullea",
-      "Gary Lockwood",
-      "William Sylvester",
-      "Douglas Rain"
-    ]
+    "title": "2001: A Space Odyssey",
+    "year": 1968,
+    "format": "DVD",
+    "stars": "Keir Dullea, Gary Lockwood, William Sylvester, Douglas Rain"
   },
   {
-    "Title": "Harvey",
-    "Release Year": 1950,
-    "Format": "DVD",
-    "Stars": [
-      "James Stewart",
-      "Josephine Hull",
-      "Peggy Dow",
-      "Charles Drake"
-    ]
+    "title": "Harvey",
+    "year": 1950,
+    "format": "DVD",
+    "stars": "James Stewart, Josephine Hull, Peggy Dow, Charles Drake"
   },
   {
-    "Title": "Knocked Up",
-    "Release Year": 2007,
-    "Format": "Blu-Ray",
-    "Stars": [
-      "Seth Rogen",
-      "Katherine Heigl",
-      "Paul Rudd",
-      "Leslie Mann"
-    ]
+    "title": "Knocked Up",
+    "year": 2007,
+    "format": "Blu-Ray",
+    "stars": "Seth Rogen, Katherine Heigl, Paul Rudd, Leslie Mann"
   },
   {
-    "Title": "Knocked Up1",
-    "Release Year": 2007,
-    "Format": "Blu-Ray",
-    "Stars": [
-      "Seth Rogen",
-      "Katherine Heigl",
-      "Paul Rudd",
-      "Leslie Mann"
-    ]
+    "title": "Knocked Up1",
+    "year": 2007,
+    "format": "Blu-Ray",
+    "stars": "Seth Rogen, Katherine Heigl, Paul Rudd, Leslie Mann"
   },
   {
-    "Title": "Knocked Up2",
-    "Release Year": 2007,
-    "Format": "Blu-Ray",
-    "Stars": [
-      "Seth Rogen",
-      "Katherine Heigl",
-      "Paul Rudd",
-      "Leslie Mann"
-    ]
+    "title": "Knocked Up2",
+    "year": 2007,
+    "format": "Blu-Ray",
+    "stars": "Seth Rogen, Katherine Heigl, Paul Rudd, Leslie Mann"
   },
   {
-    "Title": "Knocked Up3",
-    "Release Year": 2007,
-    "Format": "Blu-Ray",
-    "Stars": [
-      "Seth Rogen",
-      "Katherine Heigl",
-      "Paul Rudd",
-      "Leslie Mann"
-    ]
+    "title": "Knocked Up3",
+    "year": 2007,
+    "format": "Blu-Ray",
+    "stars": "Seth Rogen, Katherine Heigl, Paul Rudd, Leslie Mann"
   },
   {
-    "Title": "Knocked Up4",
-    "Release Year": 2007,
-    "Format": "Blu-Ray",
-    "Stars": [
-      "Seth Rogen",
-      "Katherine Heigl",
-      "Paul Rudd",
-      "Leslie Mann"
-    ]
+    "title": "Knocked Up4",
+    "year": 2007,
+    "format": "Blu-Ray",
+    "stars": "Seth Rogen, Katherine Heigl, Paul Rudd, Leslie Mann"
   }
 ]

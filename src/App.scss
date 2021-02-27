@@ -15,25 +15,31 @@
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
 
   label {
     width: 49%;
     text-align: right;
+    position: relative;
+    cursor: pointer;
+
 
     .header__input {
       width: 63px;
       padding: 10px;
+      transition: background-color 0.3s;
       transition: 0.6s ease-in;
       border: none;
-      background-color: aliceblue;
+      background-color: peachpuff;
       color: #fff;
       outline: steelblue;
       cursor: pointer;
       
       &::placeholder {
         color: #00000080;
+        transition: 0.3s;
       }
       
       &:focus {
@@ -45,12 +51,20 @@
           color: #ffffff80;
         }
       }
+
+      &:hover {
+        background-color: steelblue;
+
+        &::placeholder {
+          color: #fff;
+        }
+      }
     }
 
   }
 
-  button {
-    background-color: aliceblue;
+  &__button {
+    background-color: peachpuff;
     color: #00000080;
     border: 0;
     width: 10%;
@@ -62,5 +76,14 @@
       background-color: steelblue;
       color: #fff;
     }
+  }
+
+  &__clear {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 36px;
+    width: 63px;
+    z-index: 2;
   }
 }

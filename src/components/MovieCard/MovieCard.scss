@@ -6,7 +6,7 @@
 
   color: #fff;
   overflow: hidden;
-  background-color: aliceblue;
+  background-color: #ffebcd;
   
   &__list {
     display: flex;
@@ -53,5 +53,10 @@
     .card__hidden {
       transform: translateY(0);
     }
+  }
+
+  &__actors {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

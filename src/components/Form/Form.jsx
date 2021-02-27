@@ -1,150 +1,127 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormInput } from '../FormInput/FormInput';
+import '../Modal/Modal.scss';
+
+const NEW_MOVIE = {
+  title: '',
+  year: '',
+  format: '',
+  stars: '',
+};
+
+const MOVIE_ERRORS = Object.keys(NEW_MOVIE)
+  .filter(field => field === 'title'
+    || field === 'year'
+    || field === 'format'
+    || field === 'stars')
+  .reduce((errors, movie) => ({
+    ...errors,
+    [movie]: null,
+  }), {});
 
 export class Form extends React.PureComponent {
   state = {
-    title: '',
-    year: '',
-    format: '',
-    actors: '',
-    errorMessage: '',
-    error: false,
+    values: NEW_MOVIE,
+    errors: MOVIE_ERRORS,
   };
 
   handleChange = (event) => {
     const { name, value } = event.target;
 
+    this.setState(state => ({
+      values: {
+        ...state.values,
+        [name]: value,
+      },
+    }));
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const { addMovie } = this.props;
+    const { values } = this.state;
+
+    addMovie(values);
+
     this.setState({
-      [name]: value,
+      values: NEW_MOVIE,
     });
   }
 
-  onSubmit = (event) => {
+  handleBlur = (event) => {
+    const { name, value } = event.target;
+    const { errors } = this.state;
+    const isControled = Object
+      .prototype
+      .hasOwnProperty
+      .call(errors, name);
+
+    if (!isControled) {
+      return;
+    }
+
+    this.setState(state => ({
+      errors: {
+        ...state.errors,
+        [name]: value ? null : `field ${name} is required`,
+      },
+    }));
+  }
+
+  isDisabledButton = () => {
     const {
       title,
       year,
       format,
-      actors,
-    } = this.state;
-    const { addMovie, handleCLick } = this.props;
+      stars,
+    } = this.state.values;
+    const hasErrors = Object.values(this.state.errors).some(err => err);
 
-    event.preventDefault();
-
-    if (!title.trim()) {
-      this.setState({
-        errorMessage: 'Enter the title',
-        error: true,
-      });
-    }
-
-    if (!year) {
-      this.setState({
-        errorMessage: 'Write release year',
-        error: true,
-      });
-    }
-
-    if (!format) {
-      this.setState({
-        errorMessage: 'Choose format',
-        error: true,
-      });
-    }
-
-    if (!actors) {
-      this.setState({
-        errorMessage: 'Add actors',
-        error: true,
-      });
-    }
-
-    addMovie(title, year, format, actors);
-
-    if (title && year && format && actors) {
-      this.setState({
-        title: '',
-        year: '',
-        format: '',
-        actors: '',
-        errorMessage: '',
-        error: false,
-      });
-
-      handleCLick();
-    }
+    return !title
+      || !year
+      || !format
+      || !stars
+      || hasErrors;
   }
 
   render() {
     const {
-      title,
-      year,
-      format,
-      actors,
-      errorMessage,
-      error,
+      values,
+      errors,
     } = this.state;
-    const { handleChange, onSubmit } = this;
+    const {
+      handleChange,
+      handleSubmit,
+      handleBlur,
+    } = this;
 
     return (
       <form
-        className="modal__form"
-        onSubmit={onSubmit}
+        className="modal__form form"
+        onSubmit={handleSubmit}
+        id="form"
       >
         <h3>Add movie</h3>
-        <label>
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            className="modal__input"
-            autoComplete="off"
-            value={title}
-            onChange={handleChange}
+
+        {Object.keys(values).map(field => (
+          <FormInput
+            key={field}
+            name={field}
+            value={values[field]}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            textError={errors[field]}
           />
-        </label>
-
-        <label>
-          <input
-            type="text"
-            name="year"
-            placeholder="Release date"
-            className="modal__input"
-            autoComplete="off"
-            maxLength="4"
-            value={year}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label>
-          <select
-            name="format"
-            className="modal__input modal__selection"
-            value={format}
-            onChange={handleChange}
-          >
-            <option value="" selected disabled hidden>Choose format</option>
-            <option value="DVD">DVD</option>
-            <option value="Blue-ray">Blue-ray</option>
-          </select>
-        </label>
-
-        <label>
-          <input
-            type="text"
-            name="actors"
-            placeholder="Actors"
-            className="modal__input"
-            autoComplete="off"
-            value={actors}
-            onChange={this.handleChange}
-          />
-        </label>
-
-        {error && <p className="modal__error">{errorMessage}</p>}
+        ))}
 
         <div>
-          <button type="submit" className="modal__button">
+          <button
+            type="submit"
+            className="form__button"
+            disabled={this.isDisabledButton()}
+          >
             Add
           </button>
         </div>
@@ -155,5 +132,4 @@ export class Form extends React.PureComponent {
 
 Form.propTypes = {
   addMovie: PropTypes.func.isRequired,
-  handleCLick: PropTypes.func.isRequired,
 };

@@ -7,11 +7,11 @@ export const MoviesList = ({ movies }) => (
   <div className="movies">
     {movies.map(movie => (
       <MovieCard
-        key={movie.Title}
-        title={movie.Title}
-        year={movie['Release Year']}
-        actors={movie.Stars}
-        format={movie.Format}
+        key={movie.title}
+        title={movie.title}
+        year={movie.year}
+        format={movie.format}
+        actors={(movie.stars).split(',')}
       />
     ))}
   </div>
@@ -23,7 +23,11 @@ MoviesList.propTypes = {
       title: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
       format: PropTypes.string.isRequired,
-      actors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      actors: PropTypes.string,
     }),
-  ).isRequired,
+  ),
+};
+
+MoviesList.defaultProps = {
+  movies: [],
 };

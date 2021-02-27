@@ -22,6 +22,7 @@
     padding: 20px;
     width: 75%;
     height: 75%;
+    min-height: 350px;
     background-color: #fff;
     transform: translateY(-75px);
     transition: 0;
@@ -49,32 +50,49 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.form {
+
+  label {
+    margin-bottom: 10px;
+  }
 
   &__input {
     width: 350px;
     padding: 10px;
-    margin: 10px 0;
-    border: 0;
-    background-color: aliceblue;
+    border: 1px solid transparent;
+    background-color: #ffebcd;
     color: #000;
-
+    
     &::placeholder {
       color: #00000080;
     }
-
+    
     &:focus {
       background-color: steelblue;
+      border: 1px solid steelblue;
       color: #fff;
 
       &::placeholder {
         color: #ffffff80;
       }
     }
+
+    &--error {
+      border: 1px solid red;
+    }
   }
 
   &__selection {
+    padding: 5px 10px;
     color: #000;
     cursor: pointer;
+
+    option {
+      background-color: #ffebcd;
+      color: #000;
+    }
   }
 
   &__button {
@@ -85,13 +103,21 @@
     background-color: springgreen;
     color: #fff;
     cursor: pointer;
+    transition: 1s;
 
     &:hover {
       background-color: steelblue;
     }
+
+    &:disabled,
+    &[disabled] {
+      background-color: #80808067;
+      cursor: default;
+    }
   }
 
   &__error {
+    font-size: 10px;
     color: red;
   }
 }

@@ -21,7 +21,7 @@ export const Modal = ({
         onClick={e => e.stopPropagation()}
         aria-hidden="true"
       >
-        <Form addMovie={addMovie} handleCLick={handleCLick} />
+        <Form addMovie={addMovie} />
       </div>
     </div>
   );

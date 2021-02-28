@@ -68,6 +68,15 @@ export class Form extends React.PureComponent {
         [name]: value ? null : `field ${name} is required`,
       },
     }));
+
+    if (value && name.includes('year')) {
+      this.setState(state => ({
+        errors: {
+          ...state.errors,
+          [name]: /[a-zA-Z]/g.test(value) ? 'Please enter a year' : null,
+        },
+      }));
+    }
   }
 
   isDisabledButton = () => {

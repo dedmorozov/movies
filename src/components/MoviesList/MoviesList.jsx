@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { MovieCard } from '../MovieCard/MovieCard';
 import './MoviesList.scss';
 
-export const MoviesList = ({ movies }) => (
+export const MoviesList = ({ movies, removeMovie }) => (
   <div className="movies">
     {movies.map(movie => (
       <MovieCard
         key={movie.title}
         title={movie.title}
-        year={movie.year}
+        year={parseInt(movie.year, 10)}
         format={movie.format}
         actors={(movie.stars).split(',')}
+        removeMovie={removeMovie}
       />
     ))}
   </div>
@@ -26,6 +27,7 @@ MoviesList.propTypes = {
       actors: PropTypes.string,
     }),
   ),
+  removeMovie: PropTypes.func.isRequired,
 };
 
 MoviesList.defaultProps = {

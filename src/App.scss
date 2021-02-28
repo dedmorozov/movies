@@ -72,9 +72,16 @@
     transition: 0.3s;
     
     &:hover,
-    &:focus {
+    &:active {
       background-color: steelblue;
       color: #fff;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: #80808067;
+      cursor: default;
+      color: #00000080;
     }
   }
 

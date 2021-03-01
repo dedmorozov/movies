@@ -1,9 +1,5 @@
-# React Starter Pack
+### movies app
 
-To use this template click `Use this template`
+[DEMO LINK](https://react-nodejs-movies.herokuapp.com/)
 
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+`npm run build && npm run devStart` - to start local
